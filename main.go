@@ -14,6 +14,8 @@ func main() {
 	fmt.Println("===> Just type (i.e. 8+5.7, two number & one operator) and press enter to get output.")
 
 	for {
+		fmt.Print("Input: ")
+
 		reader := bufio.NewReader(os.Stdin)
 		s, err := reader.ReadString('\n')
 		if err != nil {
