@@ -3,8 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"nahidhasan98/calculator/validator"
 	"os"
+
+	"github.com/nahidhasan98/calculator/validator"
 )
 
 func main() {

@@ -1,3 +1,3 @@
-module nahidhasan98/calculator
+module github.com/nahidhasan98/calculator
 
 go 1.17
