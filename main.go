@@ -5,14 +5,17 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/nahidhasan98/calculator/helper"
 	"github.com/nahidhasan98/calculator/validator"
 )
 
 func main() {
-	fmt.Println("===> Calculator app is running. A very simple console calculator app.")
-	fmt.Println("===> It only supports integer and float value and 4 opertor i.e. +, -, *, /.")
-	fmt.Println("===> Acceptable character list: 0123456789.+-*/")
-	fmt.Println("===> Just type (i.e. 8+5.7, two number & one operator) and press enter to get output.")
+	fmt.Println("==========================================================================================")
+	fmt.Println("===> Calculator app is running. A very simple console calculator app.                 <===")
+	fmt.Println("===> It only supports integer and float value and 4 opertor i.e. +, -, *, /.          <===")
+	fmt.Println("===> Acceptable character list: 0123456789.+-*/                                       <===")
+	fmt.Println("===> Just type (i.e. 8+5.7, two number & one operator) and press enter to get output. <===")
+	fmt.Println("==========================================================================================")
 
 	for {
 		fmt.Print("Input: ")
@@ -23,15 +26,15 @@ func main() {
 			fmt.Println("Something went wrong while taking input. Try again...")
 			continue
 		}
-		s = removeNewLine(s)
-		s = ignoreSpace(s)
+		s = helper.RemoveNewLine(s)
+		s = helper.IgnoreSpace(s)
 
 		if !validator.IsValid(s) {
 			fmt.Println("Input not acceptable. Try again...")
 			continue
 		}
 
-		ans, err := getResult(s)
+		ans, err := helper.GetResult(s)
 		if err != nil {
 			fmt.Println("Something went wrong while doing calculation. Try again...")
 			continue

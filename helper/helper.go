@@ -1,11 +1,13 @@
-package main
+package helper
 
 import (
 	"strconv"
 	"strings"
+
+	"github.com/nahidhasan98/calculator/calculation"
 )
 
-func removeNewLine(s string) string {
+func RemoveNewLine(s string) string {
 	ss := ""
 
 	for i := 0; i < len(s); i++ {
@@ -17,12 +19,12 @@ func removeNewLine(s string) string {
 	return ss
 }
 
-func ignoreSpace(s string) string {
+func IgnoreSpace(s string) string {
 	ss := strings.ReplaceAll(s, " ", "")
 	return ss
 }
 
-func getFirstVal(s string) (float64, error) {
+func GetFirstVal(s string) (float64, error) {
 	var value string
 	for i := 0; i < len(s); i++ {
 		if string(s[i]) == "+" || string(s[i]) == "-" || string(s[i]) == "*" || string(s[i]) == "/" {
@@ -39,7 +41,7 @@ func getFirstVal(s string) (float64, error) {
 	return val, nil
 }
 
-func getSecondVal(s string) (float64, error) {
+func GetSecondVal(s string) (float64, error) {
 	var value string
 	flag := false
 	for i := 0; i < len(s); i++ {
@@ -60,7 +62,7 @@ func getSecondVal(s string) (float64, error) {
 	return val, nil
 }
 
-func getOperator(s string) string {
+func GetOperator(s string) string {
 	for i := 0; i < len(s); i++ {
 		if string(s[i]) == "+" || string(s[i]) == "-" || string(s[i]) == "*" || string(s[i]) == "/" {
 			return string(s[i])
@@ -69,20 +71,20 @@ func getOperator(s string) string {
 	return ""
 }
 
-func getResult(s string) (float64, error) {
-	firstVal, err := getFirstVal(s)
+func GetResult(s string) (float64, error) {
+	firstVal, err := GetFirstVal(s)
 	if err != nil {
 		return 0, err
 	}
 
-	secondVal, err := getSecondVal(s)
+	secondVal, err := GetSecondVal(s)
 	if err != nil {
 		return 0, err
 	}
 
-	operater := getOperator(s)
+	operater := GetOperator(s)
 
-	res := calculate(firstVal, secondVal, operater)
+	res := calculation.Calculate(firstVal, secondVal, operater)
 
 	return res, nil
 }

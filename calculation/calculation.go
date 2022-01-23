@@ -1,6 +1,6 @@
-package main
+package calculation
 
-func calculate(a, b float64, op string) float64 {
+func Calculate(a, b float64, op string) float64 {
 	var value float64
 
 	switch op {
